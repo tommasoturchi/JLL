@@ -1,0 +1,48 @@
+unit printArr(int[] arr) {
+  int i;
+  print "[ ";
+  while (i<$arr) {
+    print arr[i];
+    print " ";
+    i++;
+  }
+  print "]\n";
+  return;
+}
+
+unit quickSort(int[] arr,int left,int right) {
+  int p;
+  int i;
+  int j;
+  int tmp;
+  int pivot;
+  i = left;
+  j = right;
+  pivot = arr[(left + right) / 2];
+  # Partition
+  while (i <= j) {
+    while (arr[i] < pivot) i++;
+    while (arr[j] > pivot) j--;
+    if (i <= j) {
+      tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+      i++;
+      j--;
+    }
+  }
+  # Recursion
+  if (left < j) quickSort( arr, left, j );
+  if (i < right) quickSort( arr, i, right );
+  return;
+}
+
+unit main(string[] args) {
+  int[] a[10];
+  int i;
+  a = { 4 , 8 , 5 , 9 , 3 , 2 , 0 , 1 , 6 , 7 };
+  printArr(a);
+  quickSort( a , 0 , 9 );
+  printArr(a);
+  return;
+}

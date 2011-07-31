@@ -1,0 +1,18 @@
+unit main(string[] args) {
+  int prec;
+  int act;
+  int tmp;
+  int i;
+  act = 1;
+  print prec;
+  while (i<10) {
+    print " ";
+    print act;
+    tmp = prec;
+    prec = act;
+    act = act + tmp;
+    i++;
+  }
+  print "\n";
+  return;
+}
